@@ -1,0 +1,67 @@
+---
+import TailwindImage from '../svg/undraw/undraw_tailwind_css.svg'
+import CoreImage from '../svg/undraw/undraw_static_assets.svg'
+
+const callouts = [
+  {
+    name: 'Cocinas Exclusivas',
+    description:
+      'La distribución, el estilo y los espacios útiles son la clave del éxito. Apuesta por una cocina hecha a medida y consigue un resultado especial y personalizado para ti',
+    imageSrc: './cocinas.webp',
+    imageAlt: 'Astro logo',
+    href: 'https://astro.build',
+  },
+  {
+    name: 'Zona noche',
+    description:
+      'Estética y comodidad. Todos los elementos que necesitas para crear tu habitación ideal',
+    imageSrc: './noche.webp',
+    imageAlt: 'TailwindCSS drawing',
+    href: 'https://tailwindcss.com',
+  },
+  {
+    name: 'Zona Día',
+    description:
+      'En la variedad está el gusto. Tenemos una gran variedad de materiales, colores y acabados, preparados para conseguir la mejor combinación para tu comedor o sala de estar',
+    imageSrc: './dia.webp',
+    imageAlt: 'Core Web',
+    href: 'https://w3.org',
+  },
+]
+---
+
+<div class="bg-purple-100 dark:bg-zinc-900">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-2xl mx-auto py-16 sm:py-24 lg:py-32 lg:max-w-none">
+      <h2 class="text-4xl font-extrabold text-black dark:text-white">
+        Saber más
+      </h2>
+      <div
+        class="mt-6 space-y-12 lg:space-y-0 lg:grid lg:grid-cols-3 lg:gap-x-6"
+      >
+        {
+          callouts.map(callout => (
+            <div class="group relative">
+              <div class="relative w-full h-80  overflow-hidden group-hover:opacity-75 sm:aspect-w-2 sm:aspect-h-1 sm:h-64 lg:aspect-w-1 lg:aspect-h-1">
+                <img
+                  src={callout.imageSrc}
+                  alt={callout.imageAlt}
+                  class="w-full h-full object-center object-contain"
+                />
+              </div>
+              <h3 class="mt-6 text-2xl text-black dark:text-white">
+                <a href={callout.href}>
+                  <span class="absolute inset-0" />
+                  {callout.name}
+                </a>
+              </h3>
+              <p class="text-base text-gray-900 dark:text-gray-100">
+                {callout.description}
+              </p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</div>
